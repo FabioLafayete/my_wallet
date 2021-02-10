@@ -22,22 +22,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Color lightBlue = DesignColors.lightBlue();
   Color white = DesignColors.white();
 
-  @override
-  void initState() {
-    super.initState();
-
-    Shared.keepLoggedIn().then((e){
-      if(e != null && e == true){
-        setState(() {
-          login = false;
-        });
-      }
-    });
-
-
+  void _goTo(){
     Timer(
         Duration(milliseconds: 3500),
-        () => Navigator.of(context).pushReplacement(
+            () => Navigator.of(context).pushReplacement(
             PageRouteBuilder(
                 transitionDuration: Duration(seconds: 0),
                 pageBuilder: (_, __, ___) =>
@@ -45,6 +33,23 @@ class _SplashScreenState extends State<SplashScreen> {
             )
         )
     );
+  }
+
+  void _checkLogin(){
+    Shared.keepLoggedIn().then((e){
+      if(e != null && e == true){
+        setState(() {
+          login = false;
+        });
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _checkLogin();
+    _goTo();
   }
 
   @override

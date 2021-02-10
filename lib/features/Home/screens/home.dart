@@ -1,4 +1,6 @@
 import 'package:app_ewally/features/Design/colors.dart';
+import 'package:app_ewally/features/SplashScreen/screens/splash_screen.dart';
+import 'package:app_ewally/services/SharedPreferences/sp.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -21,6 +23,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+    Shared.getToken().then((value) => print(value));
     widgets = [
       Container(color: white),
       Container(color: greenPool),
@@ -85,7 +88,12 @@ class _HomeState extends State<Home> {
         actions: [
           IconButton(
             icon: Icon(Icons.logout, color: Colors.red),
-            onPressed: (){},
+            onPressed: (){
+              Shared.resetToken();
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_)=> SplashScreen())
+              );
+            },
           )
         ],
         title: Text(
