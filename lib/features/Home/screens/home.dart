@@ -1,5 +1,6 @@
 import 'package:app_ewally/features/Design/colors.dart';
 import 'package:app_ewally/features/SplashScreen/screens/splash_screen.dart';
+import 'package:app_ewally/features/Wallet/screens/wallet.dart';
 import 'package:app_ewally/services/SharedPreferences/sp.dart';
 import 'package:flutter/material.dart';
 
@@ -23,9 +24,9 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    Shared.getToken().then((value) => print(value));
+
     widgets = [
-      Container(color: white),
+      Wallet(),
       Container(color: greenPool),
     ];
 
@@ -68,9 +69,9 @@ class _HomeState extends State<Home> {
   List<BottomNavigationBarItem> _itemsBottomNavigation (){
     return [
       BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
-          activeIcon: Icon(Icons.home),
-          label: 'Início'),
+          icon: Icon(Icons.account_balance_wallet_outlined),
+          activeIcon: Icon(Icons.account_balance_wallet),
+          label: 'Carteira'),
       BottomNavigationBarItem(
           icon: Icon(Icons.dashboard_outlined),
           activeIcon: Icon(Icons.dashboard),
