@@ -1,0 +1,1 @@
+final env = {"baseUrl":"https://apidev.ewally.com.br"};
