@@ -1,4 +1,4 @@
-import 'package:app_ewally/features/Design/colors.dart';
+import 'package:app_ewally/Design/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

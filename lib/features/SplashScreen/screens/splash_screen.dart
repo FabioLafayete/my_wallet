@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:app_ewally/features/Design/colors.dart';
-import 'package:app_ewally/features/Design/curves/curved_left.dart';
-import 'package:app_ewally/features/Design/curves/curved_left_shadow.dart';
-import 'package:app_ewally/features/Design/curves/curved_right.dart';
-import 'package:app_ewally/features/Design/curves/curved_right_shadow.dart';
+import 'package:app_ewally/Design/colors.dart';
+import 'package:app_ewally/Design/curves/curved_left.dart';
+import 'package:app_ewally/Design/curves/curved_left_shadow.dart';
+import 'package:app_ewally/Design/curves/curved_right.dart';
+import 'package:app_ewally/Design/curves/curved_right_shadow.dart';
 import 'package:app_ewally/features/Home/screens/home.dart';
 import 'package:app_ewally/features/Login/screens/login.dart';
 import 'package:app_ewally/services/SharedPreferences/sp.dart';

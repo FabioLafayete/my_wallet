@@ -1,5 +1,5 @@
 import 'package:app_ewally/components/raisedbutton.dart';
-import 'package:app_ewally/features/Design/colors.dart';
+import 'package:app_ewally/Design/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginButtonSocialMedia extends StatelessWidget {

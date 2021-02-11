@@ -1,4 +1,4 @@
-import 'package:app_ewally/features/Design/colors.dart';
+import 'package:app_ewally/Design/colors.dart';
 import 'package:app_ewally/features/SplashScreen/screens/splash_screen.dart';
 import 'package:app_ewally/features/Wallet/screens/wallet.dart';
 import 'package:app_ewally/services/SharedPreferences/sp.dart';
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
       backgroundColor: white,
       appBar: _appBar(),
       body: widgets[page],
-      bottomNavigationBar: _bottomNavigation(),
+      //bottomNavigationBar: _bottomNavigation(),
     );
   }
 

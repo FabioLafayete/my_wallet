@@ -1,4 +1,4 @@
-import 'package:app_ewally/features/Design/colors.dart';
+import 'package:app_ewally/Design/colors.dart';
 import 'package:app_ewally/services/Convert/convert_cent_to_money.dart';
 import 'package:flutter/material.dart';
 import 'package:app_ewally/features/Wallet/enum/operation_type.dart';

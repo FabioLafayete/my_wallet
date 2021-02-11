@@ -1,6 +1,6 @@
 import 'package:app_ewally/components/eye_button.dart';
 import 'package:app_ewally/components/textfield.dart';
-import 'package:app_ewally/features/Design/colors.dart';
+import 'package:app_ewally/Design/colors.dart';
 import 'package:app_ewally/features/Login/controller/controller_login.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,6 @@
-import 'package:app_ewally/features/Design/colors.dart';
+import 'package:app_ewally/Design/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:app_ewally/.env.dart';
 import 'package:app_ewally/services/Convert/convert_cent_to_money.dart';
 
 import 'card_description.dart';
@@ -30,7 +29,7 @@ class _StatementState extends State<Statement> {
   void initState() {
     super.initState();
     setState(() {
-      list = env['balance'];
+      list = widget.data;
       list = new List.from(list.reversed);
     });
   }
