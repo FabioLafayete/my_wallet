@@ -22,17 +22,17 @@ class _LoginState extends State<Login> {
 
   Color lightBlue = DesignColors.lightBlue();
   Color greenPool = DesignColors.greenPool();
-  Color pinkAccent = DesignColors.pinkAccent();
   Color white = DesignColors.white();
 
   final loginController = LoginController();
 
   @override
-  void didChangeDependencies() {
+  void initState() {
+    super.initState();
+
     loginController.setPassword('');
     loginController.setUser('');
     loginController.inKeyScaffold.add(keyScaffold);
-    super.didChangeDependencies();
   }
 
   @override

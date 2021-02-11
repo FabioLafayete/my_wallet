@@ -3,6 +3,7 @@ import 'package:app_ewally/components/session_expiration.dart';
 import 'package:app_ewally/features/SplashScreen/screens/splash_screen.dart';
 import 'package:app_ewally/features/Wallet/components/balance.dart';
 import 'package:app_ewally/features/Wallet/components/statement.dart';
+import 'package:app_ewally/features/Wallet/model/statement.dart';
 import 'package:app_ewally/features/Wallet/repository/balance.dart';
 import 'package:app_ewally/features/Wallet/repository/statement.dart';
 import 'package:app_ewally/services/SharedPreferences/sp.dart';
@@ -17,7 +18,8 @@ class _WalletState extends State<Wallet> {
 
   Size size;
   Future<dynamic> _fetchBalance;
-  Future<dynamic> _fetchStatement;
+  Future<List<StatementModel>> _fetchStatement;
+  List<StatementModel> statement;
 
   @override
   void initState() {
@@ -68,7 +70,7 @@ class _WalletState extends State<Wallet> {
           children: [
             Balance(balance: snapshot.data[0]),
             _br(0.08),
-            Statement(data: snapshot.data[1]['statement'])
+            Statement(data: snapshot.data[1])
           ],
         );
       },

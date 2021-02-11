@@ -18,9 +18,7 @@ class LoginPasswordTextField extends StatelessWidget {
     this.loginBloc
   });
 
-  Color pinkAccent = DesignColors.pinkAccent();
   Color lightBlue = DesignColors.lightBlue();
-  Color greenPool = DesignColors.greenPool();
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +35,12 @@ class LoginPasswordTextField extends StatelessWidget {
             enabled: true,
             colorHint: lightBlue,
             colorText: lightBlue,
-            colorIcon: greenPool,
+            colorIcon: lightBlue,
             colorBorder: lightBlue,
             colorCursor: lightBlue,
             suffix: CustomIconButton(
               radius: size.width * 0.05,
-              color: greenPool,
+              color: lightBlue,
               iconData:
               !isVisible ? Icons.visibility_off : Icons.visibility,
               onTap: () => loginBloc.inVisible.add(!isVisible),

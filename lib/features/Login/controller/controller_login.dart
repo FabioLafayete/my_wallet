@@ -1,3 +1,4 @@
+import 'package:app_ewally/Design/colors.dart';
 import 'package:app_ewally/features/Login/repository/sign_in.dart';
 import 'package:app_ewally/services/SharedPreferences/sp.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +82,7 @@ class LoginController extends BlocBase {
 
         _messageStatus(
             'Seja bem-vindo :)',
-            color: Colors.green
+            color: DesignColors.lightBlue()
         );
 
         await Future.delayed(Duration(seconds: 3));

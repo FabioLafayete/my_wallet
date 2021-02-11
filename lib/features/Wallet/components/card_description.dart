@@ -1,11 +1,12 @@
 import 'package:app_ewally/Design/colors.dart';
+import 'package:app_ewally/features/Wallet/model/statement.dart';
 import 'package:app_ewally/services/Convert/convert_cent_to_money.dart';
 import 'package:flutter/material.dart';
 import 'package:app_ewally/features/Wallet/enum/operation_type.dart';
 
 class CardDescription extends StatefulWidget {
   
-  final dynamic data;
+  final StatementModel data;
   
   CardDescription({this.data});
   
@@ -28,14 +29,14 @@ class _CardDescriptionState extends State<CardDescription> {
 
     size = MediaQuery.of(context).size;
 
-    if(!widget.data['amount'].toString().contains('-')){
+    if(!widget.data.amount.toString().contains('-')){
       setState(() {
         positiveAmount = true;
       });
     }
 
-    if(types.containsKey(widget.data['operationType'])) {
-      operationType = types[widget.data['operationType']];
+    if(types.containsKey(widget.data.operationType)) {
+      operationType = types[widget.data.operationType];
     } else operationType = 'Transação';
 
     return Card(
@@ -64,7 +65,7 @@ class _CardDescriptionState extends State<CardDescription> {
               children: [
                 Text(
                     '${!positiveAmount ? '-' : ''}'
-                        '${ConvertCents.convert(widget.data['amount'])}',
+                        '${ConvertCents.convert(widget.data.amount)}',
                     style: TextStyle(color: positiveAmount ? Colors.green : Colors.red)
                 )
               ],

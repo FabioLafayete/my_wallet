@@ -1,4 +1,5 @@
 import 'package:app_ewally/Design/colors.dart';
+import 'package:app_ewally/features/Wallet/model/statement.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:app_ewally/services/Convert/convert_cent_to_money.dart';
@@ -7,7 +8,7 @@ import 'card_description.dart';
 
 class Statement extends StatefulWidget {
 
-  final List<dynamic> data;
+  final List<StatementModel> data;
 
   Statement({this.data});
 
@@ -23,17 +24,6 @@ class _StatementState extends State<Statement> {
 
   Size size;
 
-  List<dynamic> list = [];
-
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      list = widget.data;
-      list = new List.from(list.reversed);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
 
@@ -46,9 +36,9 @@ class _StatementState extends State<Statement> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(list.length, (index){
+        children: List.generate(widget.data.length, (index){
 
-          String day = list[index]['createdAt'].substring(0, 10);
+          String day = widget.data[index].createdAt.substring(0, 10);
           bool addDay = true;
 
           if(!listOfDays.contains(day)){
@@ -67,7 +57,7 @@ class _StatementState extends State<Statement> {
                   _br(0.05),
 
                 if(addDay)
-                  _dateBalance(list[index]),
+                  _dateBalance(widget.data[index]),
 
                 if(addDay)
                   _br(0.01),
@@ -78,7 +68,7 @@ class _StatementState extends State<Statement> {
                 if(addDay)
                   _br(0.03),
 
-                CardDescription(data: list[index])
+                CardDescription(data: widget.data[index])
               ],
             ),
           );
@@ -91,9 +81,9 @@ class _StatementState extends State<Statement> {
     return SizedBox(height: size.width * number);
   }
 
-  Widget _dateBalance(dynamic data){
+  Widget _dateBalance(StatementModel data){
     DateFormat dateFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ss", 'pt_Br');
-    DateTime date = dateFormat.parse(data['createdAt']);
+    DateTime date = dateFormat.parse(data.createdAt);
 
     String hour = date.hour.toString().padLeft(2, '0');
     String minute = date.minute.toString().padLeft(2, '0');
@@ -123,7 +113,7 @@ class _StatementState extends State<Statement> {
         children: <TextSpan>[
           new TextSpan(text: ' Saldo do dia: '),
           new TextSpan(
-              text: ConvertCents.convert(list[index]['balance']),
+              text: ConvertCents.convert(widget.data[index].balance),
               style: new TextStyle(fontWeight: FontWeight.bold)
           ),
         ],

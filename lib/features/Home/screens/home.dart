@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
         title: Text(
           'MyWallet',
           style: TextStyle(
-              color: greenPool,
+              color: white,
               fontSize: size.width * 0.05
           ),
         )

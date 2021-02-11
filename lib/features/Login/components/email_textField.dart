@@ -18,7 +18,6 @@ class LoginUserTextField extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Color lightBlue = DesignColors.lightBlue();
-    Color greenPool = DesignColors.greenPool();
 
     return StreamBuilder<String>(
       stream: element,
@@ -30,7 +29,7 @@ class LoginUserTextField extends StatelessWidget {
           obscure: false,
           colorHint: lightBlue,
           colorText: lightBlue,
-          colorIcon: greenPool,
+          colorIcon: lightBlue,
           colorBorder: lightBlue,
           colorCursor: lightBlue,
           textInputType: TextInputType.emailAddress,

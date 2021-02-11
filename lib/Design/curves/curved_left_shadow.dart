@@ -6,8 +6,6 @@ class CurvedLeftShadow extends StatelessWidget {
 
   Color lightBlue = DesignColors.lightBlue();
   Color greenPool = DesignColors.greenPool();
-  Color pinkAccent = DesignColors.pinkAccent();
-  Color salmon = DesignColors.salmon();
 
   @override
   Widget build(BuildContext context) {

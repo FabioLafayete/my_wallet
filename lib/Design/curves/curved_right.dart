@@ -6,7 +6,6 @@ class CurvedRight extends StatelessWidget {
 
   Color lightBlue = DesignColors.lightBlue();
   Color greenPool = DesignColors.greenPool();
-  Color pinkAccent = DesignColors.pinkAccent();
 
   @override
   Widget build(BuildContext context) {
