@@ -1,3 +1,5 @@
+import 'package:app_ewally/features/Wallet/components/date_statement.dart';
+import 'package:app_ewally/features/Wallet/components/statement.dart';
 import 'package:flutter/material.dart';
 
 class Wallet extends StatefulWidget {
@@ -18,60 +20,8 @@ class _WalletState extends State<Wallet> {
       children: [
         _balance(),
         _br(0.08),
-        Container(
-          width: size.width,
-          height: size.width * 0.1,
-          color: Colors.grey.withOpacity(0.5),
-          padding: EdgeInsets.only(
-            left: size.width * 0.05,
-            right: size.width * 0.05,
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(right: size.width * 0.07),
-                child: Text('7 dias',
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: size.width * 0.04,
-                    fontWeight: FontWeight.w500
-                  )
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: size.width * 0.07),
-                child: Text('15 dias',
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: size.width * 0.04,
-                        fontWeight: FontWeight.w500
-                    )
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: size.width * 0.07),
-                child: Text('30 dias',
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: size.width * 0.04,
-                        fontWeight: FontWeight.w500
-                    )
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: size.width * 0.07),
-                child: Text('Outro',
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: size.width * 0.04,
-                        fontWeight: FontWeight.w500
-                    )
-                ),
-              )
-            ],
-          ),
-        )
+        DateStatement(),
+        Statement()
       ],
     );
   }

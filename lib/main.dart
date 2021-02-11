@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/SplashScreen/screens/splash_screen.dart';
 
 void main() {
@@ -11,6 +13,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MyWallet',
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate
+      ],
+      supportedLocales: [const Locale('pt', 'BR')],
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

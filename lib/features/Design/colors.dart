@@ -11,7 +11,8 @@ class DesignColors {
   static Color greenPool() => Color.fromRGBO(30, 228, 224, 1);
   static Color greenPoolOpacity() => Color.fromRGBO(30, 228, 224, 0.7);
 
-  static Color white() => Color.fromRGBO(230, 230, 230, 1.0);
+  static Color white() => Color.fromRGBO(255, 255, 255, 1.0);
+  static Color paper() => Color.fromRGBO(250, 245, 240, 1.0);
   static Color pinkAccent() => Colors.pinkAccent;
 
 
