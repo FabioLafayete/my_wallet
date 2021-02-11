@@ -19,7 +19,6 @@ class _WalletState extends State<Wallet> {
   Size size;
   Future<dynamic> _fetchBalance;
   Future<List<StatementModel>> _fetchStatement;
-  List<StatementModel> statement;
 
   @override
   void initState() {
@@ -35,7 +34,7 @@ class _WalletState extends State<Wallet> {
 
     return FutureBuilder(
       future: Future.wait([_fetchBalance, _fetchStatement]),
-      builder: (_, AsyncSnapshot<List<dynamic>> snapshot){
+      builder: (_, snapshot){
 
         if(snapshot.connectionState == ConnectionState.waiting){
           return Center(

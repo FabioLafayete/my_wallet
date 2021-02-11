@@ -69,17 +69,17 @@ class LoginController extends BlocBase {
     bool result = false;
     inLoading.add(true);
 
-
     await signIn(valueUser, valuePass).then((model) async {
 
       if(model.hasError()){
-
+        if(_keyScaffoldController.value != null)
         _messageStatus(model.error, color: Colors.redAccent);
 
       } else {
 
         Shared.saveToken(model.token, true);
 
+        if(_keyScaffoldController.value != null)
         _messageStatus(
             'Seja bem-vindo :)',
             color: DesignColors.lightBlue()
@@ -92,6 +92,7 @@ class LoginController extends BlocBase {
 
     }).catchError((e){
       result = false;
+      if(_keyScaffoldController.value != null)
       _messageStatus('Erro ao fazer login...');
 
     }).whenComplete(() => inLoading.add(false));

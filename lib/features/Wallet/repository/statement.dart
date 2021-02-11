@@ -12,10 +12,16 @@ Future<List<StatementModel>> fetchStatement() async {
     return e.response;
   });
 
-  List<dynamic> body = response.data['statement'];
-  statement = body.map(
-          (i) => StatementModel.fromJSON(i)
-  ).toList();
+  if(response.data.containsKey('msg')){
+    statement = [];
+  }
+  else {
+    List<dynamic> body = response.data['statement'];
+    statement = body.map(
+            (i) => StatementModel.fromJSON(i)
+    ).toList();
+  }
+
 
 
   return statement;
