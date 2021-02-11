@@ -4,7 +4,7 @@ class ConvertCents {
 
     double money = data / 100;
 
-    result = money.toString();
+    result = money.toString().replaceAll('-', '');
 
     String cents = result.substring(result.indexOf('.') + 1);
     if(cents.length == 1) cents = cents + '0';
@@ -24,6 +24,6 @@ class ConvertCents {
       newStr = subString + newStr;
     }
 
-    return '$newStr,$cents';
+    return 'R\$ $newStr,$cents';
   }
 }

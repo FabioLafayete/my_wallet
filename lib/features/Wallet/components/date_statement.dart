@@ -29,7 +29,7 @@ class _DateStatementState extends State<DateStatement> {
 
     return Container(
       width: size.width,
-      height: size.width * 0.1,
+      height: size.width * 0.11,
       color: Colors.grey.withOpacity(0.5),
       padding: EdgeInsets.only(
         left: size.width * 0.05,

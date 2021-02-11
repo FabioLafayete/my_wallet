@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:app_ewally/.env.dart';
 import 'package:app_ewally/services/Convert/convert_cent_to_money.dart';
 
+import 'card_description.dart';
+
 class Statement extends StatefulWidget {
   @override
   _StatementState createState() => _StatementState();
@@ -20,23 +22,48 @@ class _StatementState extends State<Statement> {
   @override
   Widget build(BuildContext context) {
 
+    List<String> listOfDays = [];
     size = MediaQuery.of(context).size;
 
     return Container(
       color: paper,
+      padding: EdgeInsets.all(size.width * 0.02),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(env['balance'].length, (index){
+
+          String day = env['balance'][index]['createdAt'].substring(0, 10);
+          bool addDay = true;
+
+          if(!listOfDays.contains(day)){
+            setState(() => listOfDays.add(day));
+          } else setState(() => addDay = false);
+
           return Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _dateBalance(env['balance'][index]),
-                _br(0.02),
-                _balance(index),
-                _br(0.07),
+                if(addDay && listOfDays.length >= 2)
+                  _br(0.1),
+
+                if(addDay && listOfDays.length == 1)
+                  _br(0.05),
+
+                if(addDay)
+                  _dateBalance(env['balance'][index]),
+
+                if(addDay)
+                  _br(0.01),
+
+                if(addDay)
+                  _balance(index),
+
+                if(addDay)
+                  _br(0.03),
+
+                CardDescription(data: env['balance'][index])
               ],
             ),
           );
@@ -62,7 +89,7 @@ class _StatementState extends State<Statement> {
     String resultDate = '$day de $month / ${date.year}';
 
     return Text(
-        resultDate,
+        ' $resultDate',
         style: TextStyle(
             fontSize: size.width * 0.04,
             color: lightBlue,
@@ -79,9 +106,9 @@ class _StatementState extends State<Statement> {
           color: lightBlue,
         ),
         children: <TextSpan>[
-          new TextSpan(text: 'Saldo do dia: '),
+          new TextSpan(text: ' Saldo do dia: '),
           new TextSpan(
-              text: 'R\$ ${ConvertCents.convert(env['balance'][index]['balance'])}',
+              text: ConvertCents.convert(env['balance'][index]['balance']),
               style: new TextStyle(fontWeight: FontWeight.bold)
           ),
         ],
