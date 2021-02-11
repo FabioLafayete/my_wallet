@@ -7,6 +7,11 @@ import 'package:app_ewally/services/Convert/convert_cent_to_money.dart';
 import 'card_description.dart';
 
 class Statement extends StatefulWidget {
+
+  final List<dynamic> data;
+
+  Statement({this.data});
+
   @override
   _StatementState createState() => _StatementState();
 }
@@ -18,6 +23,17 @@ class _StatementState extends State<Statement> {
   Color paper = DesignColors.paper();
 
   Size size;
+
+  List<dynamic> list = [];
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      list = env['balance'];
+      list = new List.from(list.reversed);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +47,9 @@ class _StatementState extends State<Statement> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(env['balance'].length, (index){
+        children: List.generate(list.length, (index){
 
-          String day = env['balance'][index]['createdAt'].substring(0, 10);
+          String day = list[index]['createdAt'].substring(0, 10);
           bool addDay = true;
 
           if(!listOfDays.contains(day)){
@@ -52,7 +68,7 @@ class _StatementState extends State<Statement> {
                   _br(0.05),
 
                 if(addDay)
-                  _dateBalance(env['balance'][index]),
+                  _dateBalance(list[index]),
 
                 if(addDay)
                   _br(0.01),
@@ -63,7 +79,7 @@ class _StatementState extends State<Statement> {
                 if(addDay)
                   _br(0.03),
 
-                CardDescription(data: env['balance'][index])
+                CardDescription(data: list[index])
               ],
             ),
           );
@@ -108,7 +124,7 @@ class _StatementState extends State<Statement> {
         children: <TextSpan>[
           new TextSpan(text: ' Saldo do dia: '),
           new TextSpan(
-              text: ConvertCents.convert(env['balance'][index]['balance']),
+              text: ConvertCents.convert(list[index]['balance']),
               style: new TextStyle(fontWeight: FontWeight.bold)
           ),
         ],

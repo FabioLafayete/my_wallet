@@ -1,6 +1,7 @@
 import 'package:app_ewally/features/Design/colors.dart';
 import 'package:app_ewally/services/Convert/convert_cent_to_money.dart';
 import 'package:flutter/material.dart';
+import 'package:app_ewally/features/Wallet/enum/operation_type.dart';
 
 class CardDescription extends StatefulWidget {
   
@@ -20,6 +21,7 @@ class _CardDescriptionState extends State<CardDescription> {
 
   Size size;
   bool positiveAmount = false;
+  String operationType = '';
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,10 @@ class _CardDescriptionState extends State<CardDescription> {
         positiveAmount = true;
       });
     }
+
+    if(types.containsKey(widget.data['operationType'])) {
+      operationType = types[widget.data['operationType']];
+    } else operationType = 'Transação';
 
     return Card(
       elevation: 1.3,
@@ -49,7 +55,7 @@ class _CardDescriptionState extends State<CardDescription> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Pagamento realizado'),
+                    Text(operationType),
                   ],
                 ),
               ),
@@ -57,7 +63,8 @@ class _CardDescriptionState extends State<CardDescription> {
             Row(
               children: [
                 Text(
-                    ConvertCents.convert(widget.data['amount']),
+                    '${!positiveAmount ? '-' : ''}'
+                        '${ConvertCents.convert(widget.data['amount'])}',
                     style: TextStyle(color: positiveAmount ? Colors.green : Colors.red)
                 )
               ],
@@ -67,18 +74,6 @@ class _CardDescriptionState extends State<CardDescription> {
       ),
     );
 
-    return Container(
-      margin: EdgeInsets.all(size.width * 0.01),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        color: white,
-        border: Border.all(
-          width: 0.5,
-          color: Colors.black38
-        )
-      ),
-      child: Container(height: size.width * 0.1,),
-    );
   }
 
   Widget _br(double number){
