@@ -1,5 +1,5 @@
 # MyWallet
 
-<img src="images/login.gif" width="300" height="560"/> <img src="images/home.gif" width="300" height="560"/>
+<img src="images/login.png" width="300" height="560"/> <img src="images/home.png" width="300" height="560"/>
 
-<img src="images/session.gif" width="300" height="560"/> <img src="images/error.gif" width="300" height="560"/>
+<img src="images/session.png" width="300" height="560"/> <img src="images/error.png" width="300" height="560"/>
