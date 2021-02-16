@@ -17,12 +17,14 @@ class CustomRaisedButton {
     Color disabledTextColor,
     Color borderSideColor,
     double fontSize,
-    double widthBorder
+    double widthBorder,
+    Key key
   }){
     return SizedBox(
         height: heightButton,
         width: widthButton,
         child: RaisedButton(
+            key: key,
             color: color,
             shape: RoundedRectangleBorder(
               side: BorderSide(color: borderSideColor, width: widthBorder),

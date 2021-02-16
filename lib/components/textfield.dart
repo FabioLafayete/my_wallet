@@ -18,9 +18,11 @@ class CustomTextField  {
     bool enabled,
     Widget prefix,
     Widget suffix,
-    TextEditingController controller
+    TextEditingController controller,
+    Key key
   }){
     return TextField(
+      key: key,
       controller: controller ?? null,
       onChanged: onChanged,
       style: TextStyle(color: colorText),

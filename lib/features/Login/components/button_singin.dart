@@ -17,6 +17,7 @@ class LoginButtonSignIn extends StatelessWidget {
     Color lightBlueOpacity = DesignColors.lightBlueOpacity();
 
     return CustomRaisedButton.show(
+        key: Key('buttonUser'),
         heightButton: size.width * 0.13,
         color: lightBlueOpacity,
         borderSideColor: lightBlue,

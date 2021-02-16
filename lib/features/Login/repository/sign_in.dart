@@ -17,8 +17,6 @@ Future<SignIn> signIn(String user, String password) async {
         return e.response;
       });
 
-  print(response.data);
-
   SignIn signIn = SignIn.fromJSON(response.data);
   if(signIn.error != null)
     signIn.errorData = true;

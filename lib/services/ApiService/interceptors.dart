@@ -15,7 +15,7 @@ class CustomInterceptors extends InterceptorsWrapper{
 
   @override
   onError(DioError e){
-    print("REQUEST[${e}] => PATH: ${e.request.path}");
+    print("REQUEST[${e.message}] => PATH: ${e.request.path}");
     return super.onError(e);
   }
 

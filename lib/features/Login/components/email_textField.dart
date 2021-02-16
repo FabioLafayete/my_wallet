@@ -23,6 +23,7 @@ class LoginUserTextField extends StatelessWidget {
       stream: element,
       builder: (_, snapshot){
         return CustomTextField.show(
+          key: Key('textFieldUser'),
           controller: controller,
           hint: " Usuário",
           icon: Icons.person_outline,

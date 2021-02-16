@@ -5,12 +5,14 @@ import 'button.dart';
 
 class SessionExpiration {
   static Widget renderSession(
+      Key key,
       BuildContext context,
       Function function,
       String text,
       Size size
       ) {
     return Column(
+      key: key,
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

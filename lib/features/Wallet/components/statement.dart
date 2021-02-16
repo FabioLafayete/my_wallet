@@ -8,7 +8,7 @@ import 'card_description.dart';
 
 class Statement extends StatefulWidget {
 
-  final List<StatementModel> data;
+  List<StatementModel> data;
 
   Statement({this.data});
 
@@ -23,6 +23,12 @@ class _StatementState extends State<Statement> {
   Color paper = DesignColors.paper();
 
   Size size;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.data = widget.data.reversed.toList();
+  }
 
   @override
   Widget build(BuildContext context) {

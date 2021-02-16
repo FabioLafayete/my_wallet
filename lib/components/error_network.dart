@@ -5,11 +5,13 @@ import 'button.dart';
 
 class ErrorNetwork {
   static Widget renderError(
+      Key key,
       BuildContext context,
       Function function,
       Size size
   ) {
     return Column(
+      key: key,
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

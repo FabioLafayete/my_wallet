@@ -28,6 +28,7 @@ class LoginPasswordTextField extends StatelessWidget {
       stream: element,
       builder: (_, snapshot){
         return CustomTextField.show(
+            key: Key('textFieldPassword'),
             hint: " Senha",
             icon: Icons.lock_outline,
             obscure: !isVisible,

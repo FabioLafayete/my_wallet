@@ -45,6 +45,7 @@ class _WalletState extends State<Wallet> {
         if(snapshot.hasError){
           return Center(
             child: ErrorNetwork.renderError(
+                Key('errorNetwork'),
                 context,
                 refresh,
                 size
@@ -57,6 +58,7 @@ class _WalletState extends State<Wallet> {
         ){
           return Center(
             child: SessionExpiration.renderSession(
+                Key('sessionExpiration'),
                 context,
                 logout,
                 snapshot.data[0],

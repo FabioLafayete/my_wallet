@@ -73,17 +73,17 @@ class LoginController extends BlocBase {
 
       if(model.hasError()){
         if(_keyScaffoldController.value != null)
-        _messageStatus(model.error, color: Colors.redAccent);
+          _messageStatus(model.error, color: Colors.redAccent);
 
       } else {
 
         Shared.saveToken(model.token, true);
 
         if(_keyScaffoldController.value != null)
-        _messageStatus(
-            'Seja bem-vindo :)',
-            color: DesignColors.lightBlue()
-        );
+          _messageStatus(
+              'Seja bem-vindo :)',
+              color: DesignColors.lightBlue()
+          );
 
         await Future.delayed(Duration(seconds: 3));
 
@@ -91,9 +91,10 @@ class LoginController extends BlocBase {
       }
 
     }).catchError((e){
+      print(e);
       result = false;
       if(_keyScaffoldController.value != null)
-      _messageStatus('Erro ao fazer login...');
+        _messageStatus('Erro ao fazer login...');
 
     }).whenComplete(() => inLoading.add(false));
 

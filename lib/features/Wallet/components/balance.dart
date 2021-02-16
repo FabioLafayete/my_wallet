@@ -25,7 +25,7 @@ class _BalanceState extends State<Balance> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Saldo em conta'),
+          Text('Saldo em conta', key: Key('balance')),
           Text(ConvertCents.convert(widget.balance),
               style: TextStyle(
                   fontWeight: FontWeight.bold,
